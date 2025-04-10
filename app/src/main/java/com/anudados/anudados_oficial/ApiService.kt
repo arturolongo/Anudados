@@ -1,8 +1,7 @@
-package com.example.anudados_oficial
+package com.anudados.anudados_oficial
 
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.util.Log
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
@@ -11,7 +10,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
@@ -60,15 +58,13 @@ object ApiClient {
     private const val BASE_URL = "http://100.28.103.38:5000/"  // Asegurarse que termina con /
     private const val TIMEOUT_SECONDS = 30L
 
-    private val loggingInterceptor = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
-    }
-
     private val client = OkHttpClient.Builder()
-        .addInterceptor(loggingInterceptor)
-        .connectTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
-        .readTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
-        .writeTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
+        .addInterceptor(HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        })
+        .connectTimeout(30, TimeUnit.SECONDS)
+        .readTimeout(30, TimeUnit.SECONDS)
+        .writeTimeout(30, TimeUnit.SECONDS)
         .retryOnConnectionFailure(true)
         .build()
 

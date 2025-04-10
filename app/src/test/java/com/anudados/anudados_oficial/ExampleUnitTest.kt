@@ -1,4 +1,4 @@
-package com.example.anudados_oficial
+package com.anudados.anudados_oficial
 
 import org.junit.Test
 

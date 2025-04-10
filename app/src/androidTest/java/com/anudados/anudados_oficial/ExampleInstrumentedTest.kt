@@ -1,4 +1,4 @@
-package com.example.anudados_oficial
+package com.anudados.anudados_oficial
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

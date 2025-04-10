@@ -1,4 +1,6 @@
-package com.example.anudados_oficial
+package com.anudados.anudados_oficial
+
+import com.example.anudados_oficial.R
 
 data class NudoInfo(
     val nombre: String,
